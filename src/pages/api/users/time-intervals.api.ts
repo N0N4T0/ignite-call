@@ -36,8 +36,6 @@ export default async function handler(
   // Cannot use createMany because of SQLite database
   const { intervals } = timeIntervalsBodySchema.parse(req.body)
 
-  console.log(intervals)
-
   await Promise.all(
     intervals.map((interval) => {
       return prisma.userTimeInterval.create({
